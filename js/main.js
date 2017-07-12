@@ -109,7 +109,7 @@ require([
   /**  Включение обработчика кликов по фильтрам */
   var setFiltrationEnabled = function() {
     filtersContainer.addEventListener('click', function(evt) {
-      if (evt.target.classList.contains('hotel-filter')) {
+      if (evt.target.classList.contains('hotel-filter') ) {
         setFilterEnabled(evt.target.id);
       }
     });
