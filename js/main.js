@@ -11,12 +11,12 @@
 require([
   './filter/filter',
   './filter/filter-type',
-  './hotel',
+  './host',
   './load',
   './utils'
-], function(filter, FilterType, getHotelElement, load, utils) {
-  var filtersContainer = document.querySelector('.hotels-filters');
-  var hotelsContainer = document.querySelector('.hotels-list');
+], function(filter, FilterType, getHostElement, load, utils) {
+  var filtersContainer = document.querySelector('.hosts-filters');
+  var hostsContainer = document.querySelector('.hosts-list');
   var footer = document.querySelector('footer');
 
 
@@ -33,18 +33,18 @@ require([
 
 
   /** @constant {string} */
-  var ACTIVE_FILTER_CLASSNAME = 'hotel-filter-active';
+  var ACTIVE_FILTER_CLASSNAME = 'host-filter-active';
 
 
   /** @constant {string} */
-  var HOTELS_LOAD_URL = 'data/hotels.json';
+  var HOSTS_LOAD_URL = 'data/hosts.json';
 
 
   /**
    * Изначальный список загруженных отелей. Используется для фильтрации.
    * @type {Array.<Object>}
    */
-  var hotels = [];
+  var hosts = [];
 
 
   /**
@@ -52,7 +52,7 @@ require([
    * Используется для отрисовки.
    * @type {Array}
    */
-  var filteredHotels = [];
+  var filteredHosts = [];
 
 
   /** @type {number} */
@@ -60,20 +60,20 @@ require([
 
 
   /**
-   * @param {Array.<Object>} hotels
+   * @param {Array.<Object>} hosts
    * @param {number} page
    */
-  var renderHotels = function(hotelsList, page) {
+  var renderHosts = function(hostsList, page) {
     var from = page * PAGE_SIZE;
     var to = from + PAGE_SIZE;
 
     var container = document.createDocumentFragment();
 
-    hotels.slice(from, to).forEach(function(hotel) {
-      getHotelElement(hotel, container);
+    hosts.slice(from, to).forEach(function(host) {
+      getHostElement(host, container);
     });
 
-    hotelsContainer.appendChild(container);
+    hostsContainer.appendChild(container);
   };
 
 
@@ -81,12 +81,12 @@ require([
   var renderNextPages = function(reset) {
     if (reset) {
       pageNumber = 0;
-      hotelsContainer.innerHTML = '';
+      hostsContainer.innerHTML = '';
     }
 
     while (utils.elementIsAtTheBottom(footer) &&
-          utils.nextPageIsAvailable(hotels.length, pageNumber, PAGE_SIZE)) {
-      renderHotels(filteredHotels, pageNumber);
+          utils.nextPageIsAvailable(hosts.length, pageNumber, PAGE_SIZE)) {
+      renderHosts(filteredHosts, pageNumber);
       pageNumber++;
     }
   };
@@ -94,7 +94,7 @@ require([
 
   /** @param {FilterType} filterType */
   var setFilterEnabled = function(filterType) {
-    filteredHotels = filter(hotels, filterType);
+    filteredHosts = filter(hosts, filterType);
     renderNextPages(true);
 
     var activeFilter = filtersContainer.querySelector('.' + ACTIVE_FILTER_CLASSNAME);
@@ -109,13 +109,13 @@ require([
   /**  Включение обработчика кликов по фильтрам */
   var setFiltrationEnabled = function() {
     filtersContainer.addEventListener('click', function(evt) {
-      if (evt.target.classList.contains('hotel-filter') ) {
+      if (evt.target.classList.contains('host-filter') ) {
         setFilterEnabled(evt.target.id);
       }
     });
 
     filtersContainer.addEventListener('keydown', function(evt) {
-      if (evt.target.classList.contains('hotel-filter') &&
+      if (evt.target.classList.contains('host-filter') &&
           utils.isActivationEvent(event)) {
         evt.preventDefault();
         setFilterEnabled(evt.target.id);
@@ -130,8 +130,8 @@ require([
   };
 
 
-  load(HOTELS_LOAD_URL, function(loadedHotels) {
-    hotels = loadedHotels;
+  load(HOSTS_LOAD_URL, function(loadedHosts) {
+    hosts = loadedHosts;
 
     setFiltrationEnabled();
     setFilterEnabled(DEFAULT_FILTER);
