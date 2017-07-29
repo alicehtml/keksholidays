@@ -21,7 +21,7 @@ require([
 
 
   /** @constant {number} */
-  var PAGE_SIZE = 9;
+  var PAGE_SIZE = 16;
 
 
   /** @constant {number} */
