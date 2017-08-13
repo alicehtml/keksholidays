@@ -9,7 +9,7 @@
 
 <div class="welcome">
   <h1 class="welcome-title">Оставьте вашего любимца в гостях</h1>
-  <div class="welcome-stats"><span class="welcome-stats-hotelscount">2146</span> отелей и апартаментов</div>
+  <div class="welcome-stats"><span class="welcome-stats-hostscount">2146</span> отелей и апартаментов</div>
   <form class="searchform" method="get" id="searchform">
     <div class="searchform-group searchform-dates">
       <label class="searchform-label" for="date-from">Заезд</label>
@@ -36,25 +36,25 @@
   <button class="map-close"></button>
 </div>
 
-<main class="hotels center-wrapper">
-  <div class="hotels-title">
-    <div class="hotels-title-count">Найдено <span class="hotels-title-count-number"></span> вариантов</div>
-    <div class="hotels-title-dates">
-      <span class="hotels-title-dates-from">24 сентября</span> — 
-      <span class="hotels-title-dates-to">15 октября</span>, для <span class="hotels-title-">2</span> гостей
+<main class="hosts center-wrapper">
+  <div class="hosts-title">
+    <div class="hosts-title-count">Найдено <span class="hosts-title-count-number"></span> вариантов</div>
+    <div class="hosts-title-dates">
+      <span class="hosts-title-dates-from">24 сентября</span> — 
+      <span class="hosts-title-dates-to">15 октября</span>, для <span class="hosts-title-">2</span> гостей
     </div>
   </div>
 
-  <form class="hotels-filters">
-    <div role="radio" aria-checked="false" tabindex="1" id="all" class="hotel-filter hotel-filter-reset hotel-filter-active">Сбросить фильтры</div>
-    <div role="radio" aria-checked="false" tabindex="1" id="expensive-first" class="hotel-filter hotel-filter-dropdown">Сначала дорогие</div>
-    <div role="radio" aria-checked="false" tabindex="1" id="stars" class="hotel-filter hotel-filter-dropdown">От 2 звезд</div>
-    <div role="radio" aria-checked="false" tabindex="1" id="min-rating" class="hotel-filter hotel-filter-dropdown">Рейтинг не ниже 6</div>
-    <div role="radio" aria-checked="false" tabindex="1" id="distance" class="hotel-filter hotel-filter-dropdown">До центра не более 4 км</div>
-    <div role="radio" aria-checked="false" tabindex="1" id="favorites" class="hotel-filter">Только избранные</div>
+  <form class="hosts-filters">
+    <div role="radio" aria-checked="false" tabindex="1" id="all" class="host-filter host-filter-reset host-filter-active">Сбросить фильтры</div>
+    <div role="radio" aria-checked="false" tabindex="1" id="expensive-first" class="host-filter host-filter-dropdown">Сначала дорогие</div>
+    <div role="radio" aria-checked="false" tabindex="1" id="stars" class="host-filter host-filter-dropdown">От 2 звезд</div>
+    <div role="radio" aria-checked="false" tabindex="1" id="min-rating" class="host-filter host-filter-dropdown">Рейтинг не ниже 6</div>
+    <div role="radio" aria-checked="false" tabindex="1" id="distance" class="host-filter host-filter-dropdown">До центра не более 4 км</div>
+    <div role="radio" aria-checked="false" tabindex="1" id="favorites" class="host-filter">Только избранные</div>
   </form>
 
-  <div class="hotels-list"></div>
+  <div class="hosts-list"></div>
 </main>
 
 <footer>
@@ -83,20 +83,20 @@
   </div>
 </div>
 
-<template id="hotel-template" style="display: none">
-  <article class="hotel" role="banner" tabindex="1">
-    <span class="hotel-stars"></span>
-    <h3 class="hotel-name"></h3>
-    <div class="hotel-distance"><span class="hotel-distance-kilometers"></span> до центра</div>
-    <span class="hotel-rating"></span>
-    <span class="hotel-favourite" role="checkbox" tabindex="1"></span>
-    <ul class="hotel-amenities"></ul>
-    <a href="#" class="hotel-price" tabindex="1"><span class="hotel-price-value">9700</span>&nbsp;<span class="rouble">руб.</span></a>
+<template id="host-template" style="display: none">
+  <article class="host" role="banner" tabindex="1">
+    <span class="host-stars"></span>
+    <h3 class="host-name"></h3>
+    <div class="host-distance"><span class="host-distance-kilometers"></span> до центра</div>
+    <span class="host-rating"></span>
+    <span class="host-favourite" role="checkbox" tabindex="1"></span>
+    <ul class="host-amenities"></ul>
+    <a href="#" class="host-price" tabindex="1"><span class="host-price-value">9700</span>&nbsp;<span class="rouble">руб.</span></a>
   </article>
 
-  <li class="hotel-amenity"></li>
+  <li class="host-amenity"></li>
 
-  <div class="hotels-list-empty">
+  <div class="hosts-list-empty">
     <h3>По этому запросу ничего нет</h3>
     <p>Вероятно, стоит смягчить требования, например отменить выбранный фильтр.</p>
   </div>
