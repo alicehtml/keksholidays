@@ -239,7 +239,7 @@ body {
   border-radius: 3px;
   cursor: pointer;
   display: inline-block;
-  line-height: 34px;
+  line-height: 1.2;
   margin-right: 5px;
   padding: 0 10px;
 }
@@ -269,7 +269,7 @@ body {
   cursor: pointer;
   display: inline-block;
   font-size: 22px;
-  line-height: 22px;
+  line-height: 1;
   margin-left: 5px;
   padding: 0;
   text-align: center;
