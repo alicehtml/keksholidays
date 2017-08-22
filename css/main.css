@@ -539,7 +539,9 @@ footer .center-wrapper {
 }
 
 .footer-social-item {
-  background: url('../img/social-sprite.gif') no-repeat;
+  background-color: gold;
+  background-image: url('../img/social-sprite.gif');
+  background-repeat: no-repeat;
   display: inline-block;
   font-size: 0;
   height: 26px;
